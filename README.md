@@ -5,8 +5,9 @@
 
 
 # 最近更新   [版本历史](https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/wiki/Version-history)
-> v4.0.0.1 2019-06-24
+> v4.0.0.2 2019-06-26
 * 分离到子仓库；
+* 本次没有重大更新，可以选择不更新；
 
 # 简介
 > 为兼容以前的老项目移植，可以视情况使用它。
