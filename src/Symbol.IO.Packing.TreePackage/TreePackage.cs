@@ -153,397 +153,527 @@ namespace Symbol.IO.Packing {
         unsafe static TreePackage() {
 
             #region typecode map ValueType
-            _typeCodes = new Dictionary<TypeCode, PackageValueTypes>();
-            _typeCodes.Add(TypeCode.Boolean, PackageValueTypes.Boolean);
-            _typeCodes.Add(TypeCode.Byte, PackageValueTypes.Byte);
-            _typeCodes.Add(TypeCode.Char, PackageValueTypes.Char);
-            _typeCodes.Add(TypeCode.Int16, PackageValueTypes.Int16);
-            _typeCodes.Add(TypeCode.Int32, PackageValueTypes.Int32);
-            _typeCodes.Add(TypeCode.Int64, PackageValueTypes.Int64);
-            _typeCodes.Add(TypeCode.Single, PackageValueTypes.Single);
-            _typeCodes.Add(TypeCode.Double, PackageValueTypes.Double);
-            _typeCodes.Add(TypeCode.SByte, PackageValueTypes.SByte);
-            _typeCodes.Add(TypeCode.Decimal, PackageValueTypes.Decimal);
-            _typeCodes.Add(TypeCode.UInt16, PackageValueTypes.UInt16);
-            _typeCodes.Add(TypeCode.UInt32, PackageValueTypes.UInt32);
-            _typeCodes.Add(TypeCode.UInt64, PackageValueTypes.UInt64);
-            _typeCodes.Add(TypeCode.DateTime, PackageValueTypes.DateTime);
-            _typeCodes.Add(TypeCode.String, PackageValueTypes.String);
-            _typeCodes.Add(TypeCode.Object, PackageValueTypes.Object);
-            _typeCodes.Add(TypeCode.DBNull, PackageValueTypes.Object);
-            _typeCodes.Add(TypeCode.Empty, PackageValueTypes.Object);
+            _typeCodes = new Dictionary<TypeCode, PackageValueTypes> {
+                { TypeCode.Boolean, PackageValueTypes.Boolean },
+                { TypeCode.Byte, PackageValueTypes.Byte },
+                { TypeCode.Char, PackageValueTypes.Char },
+                { TypeCode.Int16, PackageValueTypes.Int16 },
+                { TypeCode.Int32, PackageValueTypes.Int32 },
+                { TypeCode.Int64, PackageValueTypes.Int64 },
+                { TypeCode.Single, PackageValueTypes.Single },
+                { TypeCode.Double, PackageValueTypes.Double },
+                { TypeCode.SByte, PackageValueTypes.SByte },
+                { TypeCode.Decimal, PackageValueTypes.Decimal },
+                { TypeCode.UInt16, PackageValueTypes.UInt16 },
+                { TypeCode.UInt32, PackageValueTypes.UInt32 },
+                { TypeCode.UInt64, PackageValueTypes.UInt64 },
+                { TypeCode.DateTime, PackageValueTypes.DateTime },
+                { TypeCode.String, PackageValueTypes.String },
+                { TypeCode.Object, PackageValueTypes.Object },
+                { TypeCode.DBNull, PackageValueTypes.Object },
+                { TypeCode.Empty, PackageValueTypes.Object }
+            };
             #endregion
 
             #region type map ValueType
-            _typeValueTypes = new Dictionary<Type, PackageValueTypes>();
-            _typeValueTypes.Add(typeof(string), PackageValueTypes.String);
-            _typeValueTypes.Add(typeof(IntPtr), PackageValueTypes.IntPtr);
-            _typeValueTypes.Add(typeof(UIntPtr), PackageValueTypes.UIntPtr);
-            _typeValueTypes.Add(typeof(TimeSpan), PackageValueTypes.TimeSpan);
-            _typeValueTypes.Add(typeof(Guid), PackageValueTypes.Guid);
-            _typeValueTypes.Add(typeof(System.Drawing.Icon), PackageValueTypes.Icon);
-            _typeValueTypes.Add(typeof(System.Drawing.Color), PackageValueTypes.Color);
-            _typeValueTypes.Add(typeof(System.Drawing.Image), PackageValueTypes.Image);
-            _typeValueTypes.Add(typeof(TreePackage), PackageValueTypes.NestedPackage);
-            _typeValueTypes.Add(typeof(Stream), PackageValueTypes.Stream);
+            _typeValueTypes = new Dictionary<Type, PackageValueTypes> {
+                { typeof(string), PackageValueTypes.String },
+                { typeof(IntPtr), PackageValueTypes.IntPtr },
+                { typeof(UIntPtr), PackageValueTypes.UIntPtr },
+                { typeof(TimeSpan), PackageValueTypes.TimeSpan },
+                { typeof(Guid), PackageValueTypes.Guid },
+                { typeof(System.Drawing.Icon), PackageValueTypes.Icon },
+                { typeof(System.Drawing.Color), PackageValueTypes.Color },
+                { typeof(System.Drawing.Image), PackageValueTypes.Image },
+                { typeof(TreePackage), PackageValueTypes.NestedPackage },
+                { typeof(Stream), PackageValueTypes.Stream }
+            };
             #endregion
 
             #region valueType map Type
-            _valueTypes = new Dictionary<PackageValueTypes, Type>();
-            _valueTypes.Add(PackageValueTypes.Boolean, typeof(bool));
-            _valueTypes.Add(PackageValueTypes.Byte, typeof(byte));
-            _valueTypes.Add(PackageValueTypes.Char, typeof(char));
-            _valueTypes.Add(PackageValueTypes.Int16, typeof(short));
-            _valueTypes.Add(PackageValueTypes.Int32, typeof(int));
-            _valueTypes.Add(PackageValueTypes.Int64, typeof(long));
-            _valueTypes.Add(PackageValueTypes.Single, typeof(float));
-            _valueTypes.Add(PackageValueTypes.Double, typeof(double));
-            _valueTypes.Add(PackageValueTypes.SByte, typeof(sbyte));
-            _valueTypes.Add(PackageValueTypes.Decimal, typeof(decimal));
-            _valueTypes.Add(PackageValueTypes.UInt16, typeof(ushort));
-            _valueTypes.Add(PackageValueTypes.UInt32, typeof(uint));
-            _valueTypes.Add(PackageValueTypes.UInt64, typeof(ulong));
-            _valueTypes.Add(PackageValueTypes.IntPtr, typeof(IntPtr));
-            _valueTypes.Add(PackageValueTypes.UIntPtr, typeof(UIntPtr));
-            _valueTypes.Add(PackageValueTypes.DateTime, typeof(DateTime));
-            _valueTypes.Add(PackageValueTypes.TimeSpan, typeof(TimeSpan));
-            _valueTypes.Add(PackageValueTypes.String, typeof(string));
-            _valueTypes.Add(PackageValueTypes.Stream, typeof(Stream));
-            _valueTypes.Add(PackageValueTypes.Icon, typeof(System.Drawing.Icon));
-            _valueTypes.Add(PackageValueTypes.Image, typeof(System.Drawing.Image));
-            _valueTypes.Add(PackageValueTypes.Color, typeof(System.Drawing.Color));
-            _valueTypes.Add(PackageValueTypes.NestedPackage, typeof(TreePackage));
-            _valueTypes.Add(PackageValueTypes.Object, typeof(object));
+            _valueTypes = new Dictionary<PackageValueTypes, Type> {
+                { PackageValueTypes.Boolean, typeof(bool) },
+                { PackageValueTypes.Byte, typeof(byte) },
+                { PackageValueTypes.Char, typeof(char) },
+                { PackageValueTypes.Int16, typeof(short) },
+                { PackageValueTypes.Int32, typeof(int) },
+                { PackageValueTypes.Int64, typeof(long) },
+                { PackageValueTypes.Single, typeof(float) },
+                { PackageValueTypes.Double, typeof(double) },
+                { PackageValueTypes.SByte, typeof(sbyte) },
+                { PackageValueTypes.Decimal, typeof(decimal) },
+                { PackageValueTypes.UInt16, typeof(ushort) },
+                { PackageValueTypes.UInt32, typeof(uint) },
+                { PackageValueTypes.UInt64, typeof(ulong) },
+                { PackageValueTypes.IntPtr, typeof(IntPtr) },
+                { PackageValueTypes.UIntPtr, typeof(UIntPtr) },
+                { PackageValueTypes.DateTime, typeof(DateTime) },
+                { PackageValueTypes.TimeSpan, typeof(TimeSpan) },
+                { PackageValueTypes.String, typeof(string) },
+                { PackageValueTypes.Stream, typeof(Stream) },
+                { PackageValueTypes.Icon, typeof(System.Drawing.Icon) },
+                { PackageValueTypes.Image, typeof(System.Drawing.Image) },
+                { PackageValueTypes.Color, typeof(System.Drawing.Color) },
+                { PackageValueTypes.NestedPackage, typeof(TreePackage) },
+                { PackageValueTypes.Object, typeof(object) }
+            };
             #endregion
 
             #region compressor map handlers
-            _compressors = new Dictionary<PackageCompressTypes, CompressorHandler>();
-            _compressors.Add(PackageCompressTypes.QuickLZ, Compressor_QuickLZ);
-            _compressors.Add(PackageCompressTypes.Gzip, Compressor_Gzip);
-            _compressors.Add(PackageCompressTypes.Lzma7z, Compressor_Lzma);
-            //_compressors.Add(PackageCompressTypes.Zlibwapi, (buffer, compress) => compress ? Symbol.IO.Compression.ZlibwapiHelper.Compress(buffer) : Symbol.IO.Compression.ZlibwapiHelper.Decompress(buffer));
-            _compressors.Add(PackageCompressTypes.NonEncrypt_NonCompress, Compressor_Empty);
+            _compressors = new Dictionary<PackageCompressTypes, CompressorHandler> {
+                { PackageCompressTypes.QuickLZ, Compressor_QuickLZ },
+                { PackageCompressTypes.Gzip, Compressor_Gzip },
+                { PackageCompressTypes.Lzma7z, Compressor_Lzma },
+                //_compressors.Add(PackageCompressTypes.Zlibwapi, (buffer, compress) => compress ? Symbol.IO.Compression.ZlibwapiHelper.Compress(buffer) : Symbol.IO.Compression.ZlibwapiHelper.Decompress(buffer));
+                { PackageCompressTypes.NonEncrypt_NonCompress, Compressor_Empty }
+            };
             #endregion
 
             #region valueType map package SingleData Handler
-            _packageValueSingleDataHandlers = new Dictionary<PackageValueTypes, PackageValueSingleDataHandler>();
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Boolean, (keyEntry, entry) => {
-                byte[] result = new byte[1];
-                if ((bool)entry.Value)
-                    result[0] = 1;
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Byte, (keyEntry, entry) => new byte[] { (byte)entry.Value });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Char, (keyEntry, entry) => {
-                byte[] result = new byte[2];
-                char tChar = (char)entry.Value;
-                Marshal.Copy((IntPtr)(&tChar), result, 0, 2);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Int16, (keyEntry, entry) => {
-                short tShort = TypeExtensions.Convert<short>(entry.Value, 0);
-                byte[] result = new byte[2];
-                Marshal.Copy((IntPtr)(&tShort), result, 0, 2);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Int32, (keyEntry, entry) => {
-                int tInt32 = TypeExtensions.Convert<int>(entry.Value, 0);
-                byte[] result = new byte[4];
-                Marshal.Copy((IntPtr)(&tInt32), result, 0, 4);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Int64, (keyEntry, entry) => {
-                long tInt64 = TypeExtensions.Convert<long>(entry.Value, 0L);
-                byte[] result = new byte[8];
-                Marshal.Copy((IntPtr)(&tInt64), result, 0, 8);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Single, (keyEntry, entry) => {
-                float tSingle = TypeExtensions.Convert<float>(entry.Value, 0F);
-                byte[] result = new byte[4];
-                Marshal.Copy((IntPtr)(&tSingle), result, 0, 4);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Double, (keyEntry, entry) => {
-                double tDouble = TypeExtensions.Convert<double>(entry.Value, 0D);
-                byte[] result = new byte[8];
-                Marshal.Copy((IntPtr)(&tDouble), result, 0, 8);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.SByte, (keyEntry, entry) => {
-                sbyte tSByte = TypeExtensions.Convert<sbyte>(entry.Value, 0);
-                byte[] result = new byte[1];
-                Marshal.Copy((IntPtr)(&tSByte), result, 0, 1);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Decimal, (keyEntry, entry) => Encoding.ASCII.GetBytes(entry.Value.ToString()));
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.UInt16, (keyEntry, entry) => {
-                ushort tUShort = TypeExtensions.Convert<ushort>(entry.Value, 0);
-                byte[] result = new byte[2];
-                Marshal.Copy((IntPtr)(&tUShort), result, 0, 2);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.UInt32, (keyEntry, entry) => {
-                uint tUInt32 = TypeExtensions.Convert<uint>(entry.Value, 0);
-                byte[] result = new byte[4];
-                Marshal.Copy((IntPtr)(&tUInt32), result, 0, 4);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.UInt64, (keyEntry, entry) => {
-                ulong tUInt64 = TypeExtensions.Convert<ulong>(entry.Value, 0L);
-                byte[] result = new byte[8];
-                Marshal.Copy((IntPtr)(&tUInt64), result, 0, 8);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.IntPtr, (keyEntry, entry) => {
-                IntPtr tIntPtr = (IntPtr)entry.Value;
-                byte[] result = new byte[IntPtr.Size];
-                if (IntPtr.Size == 4) {
-                    int tIntPtr2 = tIntPtr.ToInt32();
-                    Marshal.Copy((IntPtr)(&tIntPtr2), result, 0, 4);
-                } else {
-                    long tIntPtr3 = tIntPtr.ToInt64();
-                    Marshal.Copy((IntPtr)(&tIntPtr3), result, 0, 8);
-                }
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.UIntPtr, (keyEntry, entry) => {
-                UIntPtr tUIntPtr = (UIntPtr)entry.Value;
-                byte[] result = new byte[UIntPtr.Size];
-                if (UIntPtr.Size == 4) {
-                    uint tUIntPtr2 = tUIntPtr.ToUInt32();
-                    Marshal.Copy((IntPtr)(&tUIntPtr2), result, 0, 4);
-                } else {
-                    ulong tUIntPtr3 = tUIntPtr.ToUInt64();
-                    Marshal.Copy((IntPtr)(&tUIntPtr3), result, 0, 8);
-                }
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.DateTime, (keyEntry, entry) => {
-                return Encoding.ASCII.GetBytes( ((DateTime)entry.Value).ToString("yyyy-MM-dd HH:mm:ss"));
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.TimeSpan, (keyEntry, entry) => {
-                double tTimeSpan = ((TimeSpan)entry.Value).TotalMilliseconds;
-                byte[] result = new byte[8];
-                Marshal.Copy((IntPtr)(&tTimeSpan), result, 0, 8);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.String, (keyEntry, entry) => Encoding.UTF8.GetBytes((string)entry.Value));
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Stream, (keyEntry, entry) => {
-                MemoryStream memoryStream = entry.Value as MemoryStream;
-                if (memoryStream != null) {
-                    return memoryStream.ToArray();
-                }
-                FileStream fileStream = entry.Value as FileStream;
-                if (fileStream != null) {
-                    fileStream.Position = 0;
-                    byte[] result = new byte[fileStream.Length];
-                    fileStream.Read(result, 0, result.Length);
-                    return result;
-                }
-                using (memoryStream = new MemoryStream()) {
-                    StreamExtensions.CopyTo(((Stream)entry.Value),memoryStream, true);
-                    return memoryStream.ToArray();
-                }
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Icon, (keyEntry, entry) => {
-                using (MemoryStream memoryStream = new MemoryStream()) {
-                    ((System.Drawing.Icon)entry.Value).Save(memoryStream);
-                    return memoryStream.ToArray();
-                }
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Image, (keyEntry, entry) => {
-                using (MemoryStream memoryStream = new MemoryStream()) {
-                    System.Drawing.Image p= (System.Drawing.Image)entry.Value;
-                    p.Save(memoryStream, p.RawFormat);
-                    return memoryStream.ToArray();
-                }
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Color, (keyEntry, entry) => {
-                int tColor = ((System.Drawing.Color)entry.Value).ToArgb();
-                byte[] result = new byte[4];
-                Marshal.Copy((IntPtr)(&tColor), result, 0, 4);
-                return result;
-            });
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Guid, (keyEntry, entry) =>((Guid)entry.Value).ToByteArray());
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.NestedPackage, (keyEntry, entry) => ((TreePackage)entry.Value).Save());
-            _packageValueSingleDataHandlers.Add(PackageValueTypes.Object, (keyEntry, entry) => {
-                Type type = entry.Value.GetType();
-                if (AttributeExtensions.IsDefined<NonPackageAttribute>(type) || AttributeExtensions.IsDefined<Formatting.IgnoreAttribute>(type))
-                    return new byte[0];
-                ICustomPackage customPackage = null;
-                byte flag;
-                if (AttributeExtensions.IsDefined<PropertyPackageAttribute>(type)) {
-                    customPackage = PropertyPackage.Instance;
-                    flag = 0;
-                } else if (AttributeExtensions.IsDefined<FieldPackageAttribute>(type)) {
-                    customPackage = FieldPackage.Instance;
-                    flag = 1;
-                } else if (AttributeExtensions.IsDefined<CustomPackageAttribute>(type)) {
-                    var attribute=AttributeExtensions.GetCustomAttribute<CustomPackageAttribute>(type);
-                    customPackage = FastWrapper.CreateInstance<ICustomPackage>(attribute.CustomPackageType);
-                    //customPackage= CustomPackageAttribute.GetCustomPackageType(type);
-                    flag = 255;
-                } else {
-                    customPackage = PropertyPackage.Instance;
-                    flag = 0;
-                }
-                using (MemoryStream stream = new MemoryStream(128)) {
-                    stream.WriteByte(flag);
-                    byte[] buffer = null;
-                    if (flag == 255) {
-                        buffer = Encoding.UTF8.GetBytes(customPackage.GetType().AssemblyQualifiedName);
-                        short iShort = (short)buffer.Length;
-                        byte[] buffer2 = new byte[2];
-                        Marshal.Copy((IntPtr)(&iShort), buffer2, 0, 2);
-                        stream.Write(buffer2, 0, buffer2.Length);
-                        stream.Write(buffer, 0, buffer.Length);
+            _packageValueSingleDataHandlers = new Dictionary<PackageValueTypes, PackageValueSingleDataHandler> {
+                {
+                    PackageValueTypes.Boolean,
+                    (keyEntry, entry) => {
+                        byte[] result = new byte[1];
+                        if ((bool)entry.Value)
+                            result[0] = 1;
+                        return result;
                     }
-                    buffer= customPackage.Save(entry.Value);
-                    stream.Write(buffer,0,buffer.Length);
-                    return stream.ToArray();
-                } 
-            });
-            #endregion
-            #region valueType map unpackage SingleData Handler
-            _unPakcageValueSingleDataHandlers = new Dictionary<PackageValueTypes, UnPackageValueSingleDataHandler>();
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Boolean, (keyEntry, entry, buffer) => entry.Value = buffer[0] == 1);
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Byte, (keyEntry, entry, buffer) => entry.Value = buffer[0]);
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Char, (keyEntry, entry, buffer) => {
-                char tChar; ;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tChar), 2);
-                entry.Value = tChar;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Int16, (keyEntry, entry, buffer) => {
-                short tShort;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tShort), 2);
-                entry.Value = tShort;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Int32, (keyEntry, entry, buffer) => {
-                int tInt32;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tInt32), 4);
-                entry.Value = tInt32;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Int64, (keyEntry, entry, buffer) => {
-                long tInt64;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tInt64), 8);
-                entry.Value = tInt64;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Single, (keyEntry, entry, buffer) => {
-                float tSingle;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tSingle), 4);
-                entry.Value = tSingle;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Double, (keyEntry, entry, buffer) => {
-                double tDouble;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tDouble), 8);
-                entry.Value = tDouble;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.SByte, (keyEntry, entry, buffer) => {
-                sbyte tSByte;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tSByte), 1);
-                entry.Value = tSByte;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Decimal, (keyEntry, entry, buffer) => entry.Value = decimal.Parse(Encoding.ASCII.GetString(buffer)));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.UInt16, (keyEntry, entry, buffer) => {
-                ushort tUShort;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tUShort), 2);
-                entry.Value = tUShort;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.UInt32, (keyEntry, entry, buffer) => {
-                uint tUInt32;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tUInt32), 4);
-                entry.Value = tUInt32;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.UInt64, (keyEntry, entry, buffer) => {
-                ulong tUInt64;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tUInt64), 8);
-                entry.Value = tUInt64;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.IntPtr, (keyEntry, entry, buffer) => {
-                IntPtr tIntPtr;
-                if (buffer.Length == 4) {
-                    int tIntPtr2;
-                    Marshal.Copy(buffer, 0, (IntPtr)(&tIntPtr2), 4);
-                    tIntPtr = new IntPtr(tIntPtr2);
-                } else {
-                    long tIntPtr3;
-                    Marshal.Copy(buffer, 0, (IntPtr)(&tIntPtr3), 8);
-                    tIntPtr = new IntPtr(tIntPtr3);
-                }
-                entry.Value = tIntPtr;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.UIntPtr, (keyEntry, entry, buffer) => {
-                UIntPtr tUIntPtr;
-                if (buffer.Length == 4) {
-                    uint tUIntPtr2;
-                    Marshal.Copy(buffer, 0, (IntPtr)(&tUIntPtr2), 4);
-                    tUIntPtr = new UIntPtr(tUIntPtr2);
-                } else {
-                    ulong tUIntPtr3;
-                    Marshal.Copy(buffer, 0, (IntPtr)(&tUIntPtr3), 8);
-                    tUIntPtr = new UIntPtr(tUIntPtr3);
-                }
-                entry.Value = tUIntPtr;
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.DateTime, (keyEntry, entry, buffer) => entry.Value= DateTime.Parse(Encoding.ASCII.GetString(buffer)));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.TimeSpan, (keyEntry, entry, buffer) => {
-                double tTimeSpan;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tTimeSpan), 8);
-                entry.Value = TimeSpan.FromMilliseconds(tTimeSpan);
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.String, (keyEntry, entry, buffer) => entry.Value = Encoding.UTF8.GetString(buffer));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Stream, (keyEntry, entry, buffer) => entry.Value = new MemoryStream(buffer));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Icon, (keyEntry, entry, buffer) => {
-                using (MemoryStream memoryStream = new MemoryStream(buffer)) {
-                    entry.Value = new System.Drawing.Icon(memoryStream);
-                }
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Image, (keyEntry, entry, buffer) => {
-                using (MemoryStream memoryStream = new MemoryStream(buffer)) {
-                    entry.Value = System.Drawing.Image.FromStream(memoryStream);
-                }
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Color, (keyEntry, entry, buffer) => {
-                int tColor;
-                Marshal.Copy(buffer, 0, (IntPtr)(&tColor), 4);
-                entry.Value = System.Drawing.Color.FromArgb(tColor);
-            });
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Guid,(keyEntry, entry, buffer) =>entry.Value= new Guid(buffer));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.NestedPackage, (keyEntry, entry, buffer) => entry.Value = Load(buffer));
-            _unPakcageValueSingleDataHandlers.Add(PackageValueTypes.Object, (keyEntry, entry,buffer) => {
-                if (buffer.Length == 0)//NonPackage
-                    return;
-                using (MemoryStream stream = new MemoryStream(buffer)) {
-                    byte flag = (byte)stream.ReadByte();
-                    ICustomPackage customPackage = null;
-                    byte[] buffer2;
-                    if (flag == 0) {
-                        customPackage = PropertyPackage.Instance;
-                    } else if (flag == 1) {
-                        customPackage = FieldPackage.Instance;
-                    } else if (flag == 255) {
-                        short iShort;
-                        buffer2 = new byte[2];
-                        stream.Read(buffer2, 0, 2);
-                        Marshal.Copy(buffer2, 0, (IntPtr)(&iShort), 2);
-                        buffer2= new byte [iShort];
-                        stream.Read(buffer2, 0, iShort);
-                        string typeFullName = Encoding.UTF8.GetString(buffer2);
-                        Type customType = FastWrapper.GetWarpperType(typeFullName);
-                        if (customType == null)
-                            throw new TypeLoadException("未能找到类型“"+typeFullName+"”");
-                        customPackage = (ICustomPackage)FastWrapper.CreateInstance(customType);
-                    } else {
-                        throw new NotSupportedException();
+                },
+                { PackageValueTypes.Byte, (keyEntry, entry) => new byte[] { (byte)entry.Value } },
+                {
+                    PackageValueTypes.Char,
+                    (keyEntry, entry) => {
+                        byte[] result = new byte[2];
+                        char tChar = (char)entry.Value;
+                        Marshal.Copy((IntPtr)(&tChar), result, 0, 2);
+                        return result;
                     }
-                    //read to end
-                    buffer2 = new byte[stream.Length - stream.Position];
-                    stream.Read(buffer2, 0, buffer2.Length);
-                    entry.Value = customPackage.Load(buffer2);
+                },
+                {
+                    PackageValueTypes.Int16,
+                    (keyEntry, entry) => {
+                        short tShort = TypeExtensions.Convert<short>(entry.Value, 0);
+                        byte[] result = new byte[2];
+                        Marshal.Copy((IntPtr)(&tShort), result, 0, 2);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.Int32,
+                    (keyEntry, entry) => {
+                        int tInt32 = TypeExtensions.Convert<int>(entry.Value, 0);
+                        byte[] result = new byte[4];
+                        Marshal.Copy((IntPtr)(&tInt32), result, 0, 4);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.Int64,
+                    (keyEntry, entry) => {
+                        long tInt64 = TypeExtensions.Convert<long>(entry.Value, 0L);
+                        byte[] result = new byte[8];
+                        Marshal.Copy((IntPtr)(&tInt64), result, 0, 8);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.Single,
+                    (keyEntry, entry) => {
+                        float tSingle = TypeExtensions.Convert<float>(entry.Value, 0F);
+                        byte[] result = new byte[4];
+                        Marshal.Copy((IntPtr)(&tSingle), result, 0, 4);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.Double,
+                    (keyEntry, entry) => {
+                        double tDouble = TypeExtensions.Convert<double>(entry.Value, 0D);
+                        byte[] result = new byte[8];
+                        Marshal.Copy((IntPtr)(&tDouble), result, 0, 8);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.SByte,
+                    (keyEntry, entry) => {
+                        sbyte tSByte = TypeExtensions.Convert<sbyte>(entry.Value, 0);
+                        byte[] result = new byte[1];
+                        Marshal.Copy((IntPtr)(&tSByte), result, 0, 1);
+                        return result;
+                    }
+                },
+                { PackageValueTypes.Decimal, (keyEntry, entry) => Encoding.ASCII.GetBytes(entry.Value.ToString()) },
+                {
+                    PackageValueTypes.UInt16,
+                    (keyEntry, entry) => {
+                        ushort tUShort = TypeExtensions.Convert<ushort>(entry.Value, 0);
+                        byte[] result = new byte[2];
+                        Marshal.Copy((IntPtr)(&tUShort), result, 0, 2);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.UInt32,
+                    (keyEntry, entry) => {
+                        uint tUInt32 = TypeExtensions.Convert<uint>(entry.Value, 0);
+                        byte[] result = new byte[4];
+                        Marshal.Copy((IntPtr)(&tUInt32), result, 0, 4);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.UInt64,
+                    (keyEntry, entry) => {
+                        ulong tUInt64 = TypeExtensions.Convert<ulong>(entry.Value, 0L);
+                        byte[] result = new byte[8];
+                        Marshal.Copy((IntPtr)(&tUInt64), result, 0, 8);
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.IntPtr,
+                    (keyEntry, entry) => {
+                        IntPtr tIntPtr = (IntPtr)entry.Value;
+                        byte[] result = new byte[IntPtr.Size];
+                        if (IntPtr.Size == 4) {
+                            int tIntPtr2 = tIntPtr.ToInt32();
+                            Marshal.Copy((IntPtr)(&tIntPtr2), result, 0, 4);
+                        } else {
+                            long tIntPtr3 = tIntPtr.ToInt64();
+                            Marshal.Copy((IntPtr)(&tIntPtr3), result, 0, 8);
+                        }
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.UIntPtr,
+                    (keyEntry, entry) => {
+                        UIntPtr tUIntPtr = (UIntPtr)entry.Value;
+                        byte[] result = new byte[UIntPtr.Size];
+                        if (UIntPtr.Size == 4) {
+                            uint tUIntPtr2 = tUIntPtr.ToUInt32();
+                            Marshal.Copy((IntPtr)(&tUIntPtr2), result, 0, 4);
+                        } else {
+                            ulong tUIntPtr3 = tUIntPtr.ToUInt64();
+                            Marshal.Copy((IntPtr)(&tUIntPtr3), result, 0, 8);
+                        }
+                        return result;
+                    }
+                },
+                {
+                    PackageValueTypes.DateTime,
+                    (keyEntry, entry) => {
+                        return Encoding.ASCII.GetBytes(((DateTime)entry.Value).ToString("yyyy-MM-dd HH:mm:ss"));
+                    }
+                },
+                {
+                    PackageValueTypes.TimeSpan,
+                    (keyEntry, entry) => {
+                        double tTimeSpan = ((TimeSpan)entry.Value).TotalMilliseconds;
+                        byte[] result = new byte[8];
+                        Marshal.Copy((IntPtr)(&tTimeSpan), result, 0, 8);
+                        return result;
+                    }
+                },
+                { PackageValueTypes.String, (keyEntry, entry) => Encoding.UTF8.GetBytes((string)entry.Value) },
+                {
+                    PackageValueTypes.Stream,
+                    (keyEntry, entry) => {
+                        if (entry.Value is MemoryStream memoryStream) {
+                            return memoryStream.ToArray();
+                        }
+                        if (entry.Value is FileStream fileStream) {
+                            fileStream.Position = 0;
+                            byte[] result = new byte[fileStream.Length];
+                            fileStream.Read(result, 0, result.Length);
+                            return result;
+                        }
+                        using (memoryStream = new MemoryStream()) {
+                            StreamExtensions.CopyTo(((Stream)entry.Value), memoryStream, true);
+                            return memoryStream.ToArray();
+                        }
+                    }
+                },
+#if net50 || net60
+#pragma warning disable CA1416 // 验证平台兼容性
+
+                {
+                    PackageValueTypes.Icon,
+                    (keyEntry, entry) => {
+                        using (MemoryStream memoryStream = new MemoryStream()) {
+                            ((System.Drawing.Icon)entry.Value).Save(memoryStream);
+                            return memoryStream.ToArray();
+                        }
+                    }
+                },
+                {
+                    PackageValueTypes.Image,
+                    (keyEntry, entry) => {
+                        using (MemoryStream memoryStream = new MemoryStream()) {
+                            System.Drawing.Image p = (System.Drawing.Image)entry.Value;
+                            p.Save(memoryStream, p.RawFormat);
+                            return memoryStream.ToArray();
+                        }
+                    }
+                },
+#pragma warning restore CA1416 // 验证平台兼容性
+#endif
+                {
+                    PackageValueTypes.Color,
+                    (keyEntry, entry) => {
+                        int tColor = ((System.Drawing.Color)entry.Value).ToArgb();
+                        byte[] result = new byte[4];
+                        Marshal.Copy((IntPtr)(&tColor), result, 0, 4);
+                        return result;
+                    }
+                },
+                { PackageValueTypes.Guid, (keyEntry, entry) => ((Guid)entry.Value).ToByteArray() },
+                { PackageValueTypes.NestedPackage, (keyEntry, entry) => ((TreePackage)entry.Value).Save() },
+                {
+                    PackageValueTypes.Object,
+                    (keyEntry, entry) => {
+                        Type type = entry.Value.GetType();
+                        if (AttributeExtensions.IsDefined<NonPackageAttribute>(type) || AttributeExtensions.IsDefined<Formatting.IgnoreAttribute>(type))
+#if net20 || net35
+                            return new byte[0];
+#else
+                            return Array.Empty<byte>();
+#endif
+                        ICustomPackage customPackage = null;
+                        byte flag;
+                        if (AttributeExtensions.IsDefined<PropertyPackageAttribute>(type)) {
+                            customPackage = PropertyPackage.Instance;
+                            flag = 0;
+                        } else if (AttributeExtensions.IsDefined<FieldPackageAttribute>(type)) {
+                            customPackage = FieldPackage.Instance;
+                            flag = 1;
+                        } else if (AttributeExtensions.IsDefined<CustomPackageAttribute>(type)) {
+                            var attribute = AttributeExtensions.GetCustomAttribute<CustomPackageAttribute>(type);
+                            customPackage = FastWrapper.CreateInstance<ICustomPackage>(attribute.CustomPackageType);
+                            //customPackage= CustomPackageAttribute.GetCustomPackageType(type);
+                            flag = 255;
+                        } else {
+                            customPackage = PropertyPackage.Instance;
+                            flag = 0;
+                        }
+                        using (MemoryStream stream = new MemoryStream(128)) {
+                            stream.WriteByte(flag);
+                            byte[] buffer = null;
+                            if (flag == 255) {
+                                buffer = Encoding.UTF8.GetBytes(customPackage.GetType().AssemblyQualifiedName);
+                                short iShort = (short)buffer.Length;
+                                byte[] buffer2 = new byte[2];
+                                Marshal.Copy((IntPtr)(&iShort), buffer2, 0, 2);
+                                stream.Write(buffer2, 0, buffer2.Length);
+                                stream.Write(buffer, 0, buffer.Length);
+                            }
+                            buffer = customPackage.Save(entry.Value);
+                            stream.Write(buffer, 0, buffer.Length);
+                            return stream.ToArray();
+                        }
+                    }
                 }
-            });
-            #endregion
+            };
+#endregion
+#region valueType map unpackage SingleData Handler
+            _unPakcageValueSingleDataHandlers = new Dictionary<PackageValueTypes, UnPackageValueSingleDataHandler> {
+                { PackageValueTypes.Boolean, (keyEntry, entry, buffer) => entry.Value = buffer[0] == 1 },
+                { PackageValueTypes.Byte, (keyEntry, entry, buffer) => entry.Value = buffer[0] },
+                {
+                    PackageValueTypes.Char,
+                    (keyEntry, entry, buffer) => {
+                        char tChar; ;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tChar), 2);
+                        entry.Value = tChar;
+                    }
+                },
+                {
+                    PackageValueTypes.Int16,
+                    (keyEntry, entry, buffer) => {
+                        short tShort;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tShort), 2);
+                        entry.Value = tShort;
+                    }
+                },
+                {
+                    PackageValueTypes.Int32,
+                    (keyEntry, entry, buffer) => {
+                        int tInt32;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tInt32), 4);
+                        entry.Value = tInt32;
+                    }
+                },
+                {
+                    PackageValueTypes.Int64,
+                    (keyEntry, entry, buffer) => {
+                        long tInt64;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tInt64), 8);
+                        entry.Value = tInt64;
+                    }
+                },
+                {
+                    PackageValueTypes.Single,
+                    (keyEntry, entry, buffer) => {
+                        float tSingle;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tSingle), 4);
+                        entry.Value = tSingle;
+                    }
+                },
+                {
+                    PackageValueTypes.Double,
+                    (keyEntry, entry, buffer) => {
+                        double tDouble;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tDouble), 8);
+                        entry.Value = tDouble;
+                    }
+                },
+                {
+                    PackageValueTypes.SByte,
+                    (keyEntry, entry, buffer) => {
+                        sbyte tSByte;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tSByte), 1);
+                        entry.Value = tSByte;
+                    }
+                },
+                { PackageValueTypes.Decimal, (keyEntry, entry, buffer) => entry.Value = decimal.Parse(Encoding.ASCII.GetString(buffer)) },
+                {
+                    PackageValueTypes.UInt16,
+                    (keyEntry, entry, buffer) => {
+                        ushort tUShort;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tUShort), 2);
+                        entry.Value = tUShort;
+                    }
+                },
+                {
+                    PackageValueTypes.UInt32,
+                    (keyEntry, entry, buffer) => {
+                        uint tUInt32;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tUInt32), 4);
+                        entry.Value = tUInt32;
+                    }
+                },
+                {
+                    PackageValueTypes.UInt64,
+                    (keyEntry, entry, buffer) => {
+                        ulong tUInt64;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tUInt64), 8);
+                        entry.Value = tUInt64;
+                    }
+                },
+                {
+                    PackageValueTypes.IntPtr,
+                    (keyEntry, entry, buffer) => {
+                        IntPtr tIntPtr;
+                        if (buffer.Length == 4) {
+                            int tIntPtr2;
+                            Marshal.Copy(buffer, 0, (IntPtr)(&tIntPtr2), 4);
+                            tIntPtr = new IntPtr(tIntPtr2);
+                        } else {
+                            long tIntPtr3;
+                            Marshal.Copy(buffer, 0, (IntPtr)(&tIntPtr3), 8);
+                            tIntPtr = new IntPtr(tIntPtr3);
+                        }
+                        entry.Value = tIntPtr;
+                    }
+                },
+                {
+                    PackageValueTypes.UIntPtr,
+                    (keyEntry, entry, buffer) => {
+                        UIntPtr tUIntPtr;
+                        if (buffer.Length == 4) {
+                            uint tUIntPtr2;
+                            Marshal.Copy(buffer, 0, (IntPtr)(&tUIntPtr2), 4);
+                            tUIntPtr = new UIntPtr(tUIntPtr2);
+                        } else {
+                            ulong tUIntPtr3;
+                            Marshal.Copy(buffer, 0, (IntPtr)(&tUIntPtr3), 8);
+                            tUIntPtr = new UIntPtr(tUIntPtr3);
+                        }
+                        entry.Value = tUIntPtr;
+                    }
+                },
+                { PackageValueTypes.DateTime, (keyEntry, entry, buffer) => entry.Value = DateTime.Parse(Encoding.ASCII.GetString(buffer)) },
+                {
+                    PackageValueTypes.TimeSpan,
+                    (keyEntry, entry, buffer) => {
+                        double tTimeSpan;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tTimeSpan), 8);
+                        entry.Value = TimeSpan.FromMilliseconds(tTimeSpan);
+                    }
+                },
+                { PackageValueTypes.String, (keyEntry, entry, buffer) => entry.Value = Encoding.UTF8.GetString(buffer) },
+                { PackageValueTypes.Stream, (keyEntry, entry, buffer) => entry.Value = new MemoryStream(buffer) },
+#if net50 || net60
+#pragma warning disable CA1416 // 验证平台兼容性
+
+                {
+                    PackageValueTypes.Icon,
+                    (keyEntry, entry, buffer) => {
+                        using (MemoryStream memoryStream = new MemoryStream(buffer)) {
+                            entry.Value = new System.Drawing.Icon(memoryStream);
+                        }
+                    }
+                },
+                {
+                    PackageValueTypes.Image,
+                    (keyEntry, entry, buffer) => {
+                        using (MemoryStream memoryStream = new MemoryStream(buffer)) {
+                            entry.Value = System.Drawing.Image.FromStream(memoryStream);
+                        }
+                    }
+                },
+#pragma warning restore CA1416 // 验证平台兼容性
+#endif
+
+                {
+                    PackageValueTypes.Color,
+                    (keyEntry, entry, buffer) => {
+                        int tColor;
+                        Marshal.Copy(buffer, 0, (IntPtr)(&tColor), 4);
+                        entry.Value = System.Drawing.Color.FromArgb(tColor);
+                    }
+                },
+                { PackageValueTypes.Guid, (keyEntry, entry, buffer) => entry.Value = new Guid(buffer) },
+                { PackageValueTypes.NestedPackage, (keyEntry, entry, buffer) => entry.Value = Load(buffer) },
+                {
+                    PackageValueTypes.Object,
+                    (keyEntry, entry, buffer) => {
+                        if (buffer.Length == 0)//NonPackage
+                            return;
+                        using (MemoryStream stream = new MemoryStream(buffer)) {
+                            byte flag = (byte)stream.ReadByte();
+                            ICustomPackage customPackage = null;
+                            byte[] buffer2;
+                            if (flag == 0) {
+                                customPackage = PropertyPackage.Instance;
+                            } else if (flag == 1) {
+                                customPackage = FieldPackage.Instance;
+                            } else if (flag == 255) {
+                                short iShort;
+                                buffer2 = new byte[2];
+                                stream.Read(buffer2, 0, 2);
+                                Marshal.Copy(buffer2, 0, (IntPtr)(&iShort), 2);
+                                buffer2 = new byte[iShort];
+                                stream.Read(buffer2, 0, iShort);
+                                string typeFullName = Encoding.UTF8.GetString(buffer2);
+                                Type customType = FastWrapper.GetWarpperType(typeFullName);
+                                if (customType == null)
+                                    throw new TypeLoadException("未能找到类型“" + typeFullName + "”");
+                                customPackage = (ICustomPackage)FastWrapper.CreateInstance(customType);
+                            } else {
+                                throw new NotSupportedException();
+                            }
+                            //read to end
+                            buffer2 = new byte[stream.Length - stream.Position];
+                            stream.Read(buffer2, 0, buffer2.Length);
+                            entry.Value = customPackage.Load(buffer2);
+                        }
+                    }
+                }
+            };
+#endregion
         }
         /// <summary>
         /// 创建树型包的实例（键值大小写敏感）
@@ -556,9 +686,10 @@ namespace Symbol.IO.Packing {
         /// <param name="keyIgnoreCase">键值是否忽略大小写</param>
         public TreePackage(bool keyIgnoreCase) {
             _entries = new Dictionary<string, Entry>(keyIgnoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
-            _packageEntry = new HeaderEntry();
-            _packageEntry.Version = MaxVersion;
-            _packageEntry.KeyIgnoreCase = keyIgnoreCase;
+            _packageEntry = new HeaderEntry {
+                Version = MaxVersion,
+                KeyIgnoreCase = keyIgnoreCase
+            };
         }
         /// <summary>
         /// 树型包项创建实例
@@ -579,11 +710,11 @@ namespace Symbol.IO.Packing {
             _packageEntry.CommentData = null;
             _packageEntry.CommentLength = 0;
         }
-        #endregion
+#endregion
 
-        #region methods
+#region methods
 
-        #region this
+#region this
         /// <summary>
         /// 获取或设置键值对应的值。
         /// </summary>
@@ -601,9 +732,9 @@ namespace Symbol.IO.Packing {
             }
         }
         
-        #endregion
+#endregion
 
-        #region ContainsKey
+#region ContainsKey
         /// <summary>
         /// 判断是否包含某个键值。
         /// </summary>
@@ -626,9 +757,9 @@ namespace Symbol.IO.Packing {
             }
             return true;
         }
-        #endregion
+#endregion
 
-        #region Add
+#region Add
         private void Add(Entry entry) {
             if (_entries.ContainsKey(entry.Key)) {
                 _entries[entry.Key] = entry;
@@ -650,42 +781,44 @@ namespace Symbol.IO.Packing {
         /// </code></example>
         /// <remarks>当出现重复时，会替换现有的，并且会继承部分属性：CompressType、Attributes</remarks>
         public TreePackage Add(string key, object value, PackageCompressTypes compressType = PackageCompressTypes.None) {
-            Entry entry = null;
+            Entry entry;
             if (_entries.ContainsKey(key)) {
                 entry = _entries[key];
                 entry.Value = value;
                 if (compressType != PackageCompressTypes.None)
                     entry.CompressType = compressType;
                 entry.ArrayType = PackageArrayTypes.None;
-                SetValueType(entry);
+                TreePackage.SetValueType(entry);
             } else {
                 KeyEntry keyEntry = new KeyEntry();
                 //keyEntry.KeyData = Encoding.UTF8.GetBytes(key);
                 //keyEntry.KeyLength = (ushort)keyEntry.KeyData.Length;
-                entry = new Entry(key, keyEntry);
-                entry.Value = value;
-                SetValueType(entry);
+                entry = new Entry(key, keyEntry) {
+                    Value = value
+                };
+                TreePackage.SetValueType(entry);
                 entry.CompressType = compressType;
                 _entries.Add(key, entry);
             }
             return this;
         }
-        void SetValueType(Entry entry) {
+
+        static void SetValueType(Entry entry) {
             if (entry.Nullable) {
                 entry.ValueType = PackageValueTypes.Object;
                 return;
             }
             entry.ValueType = PackageValueTypes.Object;
             Type type =entry.Value.GetType();
-            SetSingleValueType(type, entry);//先确定一下类型
+            TreePackage.SetSingleValueType(type, entry);//先确定一下类型
 
             //不能确定的可能会是数组或集合
             if (entry.ValueType == PackageValueTypes.Object) {
                 //确定是否为集合与数组
-                type = GetElementType(type, entry);
+                type = TreePackage.GetElementType(type, entry);
                 //泛型的集合需要特殊的处理一下
                 if (entry.ArrayType == PackageArrayTypes.T_Array || entry.ArrayType == PackageArrayTypes.T_List) {
-                    SetSingleValueType(type, entry);
+                    TreePackage.SetSingleValueType(type, entry);
                 }
             }
 
@@ -705,7 +838,8 @@ namespace Symbol.IO.Packing {
             //    }
             //}
         }
-        void SetSingleValueType(Type type, Entry entry) {
+
+        static void SetSingleValueType(Type type, Entry entry) {
             //类型已经有映射
             if (_typeValueTypes.ContainsKey(type)) {
                 entry.ValueType = _typeValueTypes[type];
@@ -722,9 +856,10 @@ namespace Symbol.IO.Packing {
             if (entry.ValueType != PackageValueTypes.Object)
                 return;
         }
-        Type GetElementType(Type type, Entry entry) {
+
+        static Type GetElementType(Type type, Entry entry) {
             
-            Type result = null;
+            Type result;
             //数组
             if (type.IsArray) {
                 result = type.GetElementType();//获取元素类型
@@ -749,7 +884,7 @@ namespace Symbol.IO.Packing {
             }
             //IDictionary<T1,T2>,IDictionary(Hashtable)
             if (IsTheTypes(type, typeof(IDictionary<,>), typeof(System.Collections.IDictionary))) {
-                Type[] argTypes = type.GetGenericArguments();
+                //Type[] argTypes = type.GetGenericArguments();
                 result = typeof(object);
                 entry.ArrayType = PackageArrayTypes.Dictionary;
                 return result;
@@ -837,9 +972,9 @@ namespace Symbol.IO.Packing {
             }
             return null;
         }
-        #endregion
+#endregion
 
-        #region SetKey
+#region SetKey
         /// <summary>
         /// 替换键值
         /// </summary>
@@ -864,9 +999,9 @@ namespace Symbol.IO.Packing {
             _entries.Add(newKey, entry);
             return true;
         }
-        #endregion
+#endregion
 
-        #region Clear
+#region Clear
         /// <summary>
         /// 清空树型包，它会将所有值中实现了<seealso cref="System.IDisposable"/>接口的对象释放掉。
         /// </summary>
@@ -881,10 +1016,8 @@ namespace Symbol.IO.Packing {
             if (_entries==null || _entries.Count == 0)
                 return;
             if (disposable) {
-                IDisposable disp = null;
                 foreach (KeyValuePair<string, Entry> item in _entries) {
-                    disp = item.Value.Value as IDisposable;
-                    if (disp != null) {
+                    if (item.Value.Value is IDisposable disp) {
                         try {
                             disp.Dispose();
                         } catch (DisposedException) {
@@ -892,13 +1025,14 @@ namespace Symbol.IO.Packing {
                         }
                     }
                     item.Value.Dispose();
+
                 }
             }
             _entries.Clear();
         }
-        #endregion
+#endregion
 
-        #region Remove
+#region Remove
         /// <summary>
         /// 移除键值（自动释放实现了<seealso cref="System.IDisposable"/>接口的对象）
         /// </summary>
@@ -916,8 +1050,7 @@ namespace Symbol.IO.Packing {
             if (!_entries.ContainsKey(key))
                 return false;
             if (disposable) {
-                IDisposable disp = _entries[key].Value as IDisposable;
-                if (disp != null) {
+                if (_entries[key].Value is IDisposable disp) {
                     try {
                         disp.Dispose();
                         disp = null;
@@ -936,46 +1069,31 @@ namespace Symbol.IO.Packing {
 
         #region IDisposable 成员
         /// <summary>
-        /// 析构
-        /// </summary>
-        ~TreePackage() {
-            Dispose(false);
-        }
-        /// <summary>
         /// 释放树型包所占用的资源，它会将所有值中实现了<seealso cref="System.IDisposable"/>接口的对象释放掉。
         /// </summary>
         public void Dispose() {
-            Dispose(true);
-        }
-        /// <summary>
-        /// 释放树型包所占用的资源
-        /// </summary>
-        /// <param name="disposing">是否为终结。</param>
-        protected virtual void Dispose(bool disposing) {
-            if (disposing) {
-                if (_entries != null) {
-                    Clear();
-                    _entries = null;
-                }
-                if (_entryList != null) {
-                    _entryList.Dispose();
-                    _entryList = null;
-                }
-                if (_comment == null) {
-                    _comment = null;
-                }
-                if (_attributes != null) {
-                    _attributes.Dispose();
-                    _attributes = null;
-                }
-                GC.SuppressFinalize(this);
-                //GC.Collect(0);
-                //GC.Collect();
+            if (_entries != null) {
+                Clear();
+                _entries = null;
             }
+            if (_entryList != null) {
+                _entryList.Dispose();
+                _entryList = null;
+            }
+            if (_comment == null) {
+                _comment = null;
+            }
+            if (_attributes != null) {
+                _attributes.Dispose();
+                _attributes = null;
+            }
+            GC.SuppressFinalize(this);
+            //GC.Collect(0);
+            //GC.Collect();
         }
-        #endregion
+#endregion
 
-        #region IEnumerable<Entry> 成员
+#region IEnumerable<Entry> 成员
         /// <summary>
         /// 获取可循环访问的IEnumerator。
         /// </summary>
@@ -984,9 +1102,9 @@ namespace Symbol.IO.Packing {
             return _entries.Values.GetEnumerator();
         }
 
-        #endregion
+#endregion
 
-        #region IEnumerable 成员
+#region IEnumerable 成员
         /// <summary>
         /// 获取可循环访问的IEnumerator。
         /// </summary>
@@ -995,10 +1113,10 @@ namespace Symbol.IO.Packing {
             return _entries.Values.GetEnumerator();
         }
 
-        #endregion
+#endregion
 
-        #region types
+#region types
         delegate byte[] CompressorHandler(byte[] buffer, bool compress);
-        #endregion
+#endregion
     }
 }

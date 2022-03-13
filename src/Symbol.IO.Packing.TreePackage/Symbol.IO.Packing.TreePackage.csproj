@@ -1,128 +1,168 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="NuGet">
-    <TargetFrameworks>netcoreapp3.0;netstandard2.0;netcoreapp2.0;net47;net461;net46;net45;net4;net35;net2</TargetFrameworks>
-    <IsPackable>true</IsPackable>
-    <IncludeSymbols>true</IncludeSymbols>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <GeneratedAssemblyInfoFile>Properties\AssemblyInfo.cs</GeneratedAssemblyInfoFile>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
-    <NeutralLanguage>zh-CN</NeutralLanguage>
-    <AssemblyTitle>Symbol.IO.Packing.TreePackage</AssemblyTitle>
-    <AssemblyName>Symbol.IO.Packing.TreePackage</AssemblyName>
-    <VersionPrefix>4.0.0.3</VersionPrefix>
-    <Title>Symbol.IO.Packing.TreePackage</Title>
-    <Authors>symbolspace</Authors>
-    <Company>symbolspace</Company>
-    <Description>Please see https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/wiki/Home for more information.</Description>
-    <PackageId>Symbol.IO.Packing.TreePackage</PackageId>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/symbolspace/Symbol/master/icon.png</PackageIconUrl>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageTags>web;symbol</PackageTags>
-    <PackageReleaseNotes>Please see https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/wiki/Home for more information.</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/symbolspace/Symbol/</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <SignAssembly>true</SignAssembly>
-    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
-    <AssemblyOriginatorKeyFile>..\..\Symbol.snk</AssemblyOriginatorKeyFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\.bin\Release</OutputPath>
-    <DefineConstants></DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Label="NuGet">
+		<TargetFrameworks>net6.0;net5.0;netcoreapp3.1;net48;net47;net461;net46;net35;net2</TargetFrameworks>
+		<IsPackable>true</IsPackable>
+		<IncludeSymbols>true</IncludeSymbols>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
+		<NeutralLanguage>zh-CN</NeutralLanguage>
+		<AssemblyTitle>Symbol.IO.Packing.TreePackage</AssemblyTitle>
+		<AssemblyName>Symbol.IO.Packing.TreePackage</AssemblyName>
+		<VersionPrefix>4.0.0.4</VersionPrefix>
+		<Title>Symbol.IO.Packing.TreePackage</Title>
+		<Authors>symbolspace</Authors>
+		<Company>symbolspace</Company>
+		<Description>Please see https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/wiki/Home for more information.</Description>
+		<PackageId>Symbol.IO.Packing.TreePackage</PackageId>
+		<PackageLicenseUrl></PackageLicenseUrl>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/</PackageProjectUrl>
+		<PackageIconUrl>https://raw.githubusercontent.com/symbolspace/Symbol/master/icon.png</PackageIconUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageTags>web;symbol</PackageTags>
+		<PackageReleaseNotes>Please see https://github.com/symbolspace/Symbol.IO.Packing.TreePackage/wiki/Home for more information.</PackageReleaseNotes>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/symbolspace/Symbol/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<SignAssembly>true</SignAssembly>
+		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+		<AssemblyOriginatorKeyFile>..\..\Symbol.snk</AssemblyOriginatorKeyFile>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<LangVersion>7.3</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\..\.bin\Release</OutputPath>
+		<DefineConstants></DefineConstants>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\.bin\Debug</OutputPath>
-    <DefineConstants></DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\..\.bin\Debug</OutputPath>
+		<DefineConstants></DefineConstants>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
+		<DefineConstants>net60;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+		<DefineConstants>net50;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+		<DefineConstants>netapp31;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0'">
+		<DefineConstants>netapp30;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+		<DefineConstants>netapp20;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+		<DefineConstants>netcore20;netcore;</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net48'">
+		<DefineConstants>net48</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net47'">
+		<DefineConstants>net47</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net461'">
+		<DefineConstants>net461</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net46'">
+		<DefineConstants>net46</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+		<DefineConstants>net45</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net4'">
+		<DefineConstants>net40</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+		<DefineConstants>net35</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net2'">
+		<DefineConstants>net20</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+		<Reference Include="System" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net4' ">
+		<Reference Include="System" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.0'">
-    <DefineConstants>netapp30;netcore;</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
-    <DefineConstants>netapp20;netcore;</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <DefineConstants>netcore20;netcore;</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net47'">
-    <DefineConstants>net47</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net461'">
-    <DefineConstants>net461</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net46'">
-    <DefineConstants>net46</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
-    <DefineConstants>net45</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net4'">
-    <DefineConstants>net40</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
-    <DefineConstants>net35</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net2'">
-    <DefineConstants>net20</DefineConstants>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net4' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Symbol" Version="4.0.0.13" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.1</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="System.Drawing.Common" Version="6.0" />
+		<PackageReference Include="Symbol" Version="4.0.0.21" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="System.Drawing.Common" Version="6.0" />
+		<PackageReference Include="Symbol" Version="4.0.0.21" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<PackageReference Include="System.Drawing.Common" Version="6.0" />
+		<PackageReference Include="Symbol" Version="4.0.0.21" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+		<PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+		<PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+		<PackageReference Include="Symbol" Version="4.0.0.21" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net47'">
+		<PackageReference Include="Symbol" Version="4.0.0.21" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net4'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net35'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net2'">
+		<PackageReference Include="Symbol" Version="4.0.0.13" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 
 

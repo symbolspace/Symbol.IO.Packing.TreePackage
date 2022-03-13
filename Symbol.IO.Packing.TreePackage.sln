@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{542F968D-365B-4EE5-942A-34084516813D}"
 EndProject
@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".wiki", ".wiki", "{5013F7B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".tools", ".tools", "{0579BA7F-3F32-498B-8101-816D14A2B7B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples.Enums", "examples\Examples.Enums\Examples.Enums.csproj", "{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Symbol.IO.Packing.TreePackage", "src\Symbol.IO.Packing.TreePackage\Symbol.IO.Packing.TreePackage.csproj", "{37B84B53-2B99-4D49-B00B-E5CA23ED3147}"
 EndProject
 Global
@@ -32,10 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37B84B53-2B99-4D49-B00B-E5CA23ED3147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37B84B53-2B99-4D49-B00B-E5CA23ED3147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B84B53-2B99-4D49-B00B-E5CA23ED3147}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,7 +39,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4F35076C-EEF0-4A02-95D9-2D7D5A3CBF15} = {A50E1220-69A1-44FF-9CD3-41701686EE7F}
 		{37B84B53-2B99-4D49-B00B-E5CA23ED3147} = {542F968D-365B-4EE5-942A-34084516813D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
